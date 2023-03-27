@@ -2,6 +2,7 @@ import React from 'react';
 import styled from "styled-components";
 import {useState} from "react";
 import githubIcon from "../../assets/site/logo-github-filled.png";
+import {Link} from "react-router-dom";
 
 const NavWrapper = styled.div`
     display: flex;
@@ -14,9 +15,13 @@ const NavWrapper = styled.div`
     letter-spacing: 0px;
     text-align: left;
     cursor: pointer;
-    color: rgb(196, 196, 196);
     &.active{
-      color: white;
+      a{
+        color: white;
+      }
+    }
+    a{
+      color: rgb(196, 196, 196);
     }
   }
   img{
@@ -52,7 +57,8 @@ function Nav(props) {
                 <div
                     onClick={()=>setActiveIndex(index)}
                     className={activeIndex === index ? 'active' : ''}
-                    key={nav.path}>{nav.name}
+                    key={nav.path}>
+                    <Link to={nav.path}>{nav.name}</Link>
                 </div>
             ))}
             <img src={githubIcon} alt=""/>

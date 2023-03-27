@@ -34,17 +34,15 @@ const Detail = styled.div`
   margin-bottom: 30px;
 `;
 
-const Introduce = () => {
+function Introduce(props) {
+    const {header,content} = props.children;
     return (
         <Container>
             <IntroduceWrapper>
-                <div className="welcome">
-                    欢迎，<br />
-                    你好我的名字是杨世林
-                </div>
+                {header}
             </IntroduceWrapper>
             <Detail>
-                我是一名全栈开发人员，拥有五年互联网开发经验，工作主要参与开发一些地理信息相关的数字信息<br /> 化系统，和unity游戏引擎的使用。
+                {content}
             </Detail>
         </Container>
     );

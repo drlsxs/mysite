@@ -47,19 +47,26 @@ const HomePage1 = styled.div`
 
 function Home() {
     return (
-        <div>
-            <Header />
-            <HomePage1>
-                <Introduce />
-                <Container>
-                    <BtnWrapper>
-                        <Button>下载简历</Button>
-                        <Button more>了解更多</Button>
-                    </BtnWrapper>
-                    <Terminal />
-                </Container>
-            </HomePage1>
-        </div>
+        <HomePage1>
+            <Introduce>
+                {{
+                    header:  <div>
+                        欢迎，<br />
+                        你好我的名字是杨世林
+                    </div>,
+                    content: <div>
+                        我是一名全栈开发人员，拥有五年互联网开发经验，工作主要参与开发一些地理信息相关的数字信息<br /> 化系统，和unity游戏引擎的使用。
+                    </div>
+                }}
+            </Introduce>
+            <Container>
+                <BtnWrapper>
+                    <Button>下载简历</Button>
+                    <Button more>了解更多</Button>
+                </BtnWrapper>
+                <Terminal />
+            </Container>
+        </HomePage1>
     );
 }
 
