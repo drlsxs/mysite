@@ -32,6 +32,7 @@ const ProductItemWrapper = styled.div`
     img{
       height: 230px;
       margin-bottom: 19px;
+      cursor: pointer;
     }
   }
   .project-name{
@@ -45,9 +46,8 @@ const ProductItemWrapper = styled.div`
     font-weight: 700;
     line-height: 32px;
     text-align: left;
-
-
-
+    
+    cursor: pointer;
     /* 自动布局 */
     display: flex;
     flex-direction: column;

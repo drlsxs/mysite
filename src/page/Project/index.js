@@ -11,7 +11,6 @@ const ProjectWrapper = styled.div`
 `;
 
 const Project = () => {
-    const detail = "";
     const productList = [
         {
             name: '地理信息大数据平台',
