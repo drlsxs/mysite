@@ -1,5 +1,4 @@
 import React from 'react';
-import Header from "../../components/Header";
 import Introduce from "../../components/Introduce";
 import styled from "styled-components";
 import {Container} from "../../styles/media";
