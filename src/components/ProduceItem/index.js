@@ -1,7 +1,9 @@
 import React from 'react';
 import styled from "styled-components";
 import Cover from "../../assets/site/Blog image.png";
+import { useNavigate } from 'react-router-dom';
 const ProductItemWrapper = styled.div`
+  
   /* Card */
   position: static;
   width: 33%;
@@ -127,12 +129,16 @@ const ProductItemWrapper = styled.div`
 `
 
 const ProductItem = (props) => {
+    const navgate = useNavigate();
+    function getName() {
+        navgate('/project/project_detail');
+    }
     return (
         <ProductItemWrapper>
             <div className="cover">
-                <img src={Cover} alt=""/>
+                <img src={Cover} alt="" onClick={getName}/>
             </div>
-            <div className="project-name">
+            <div className="project-name" onClick={getName}>
                 {props.name}
             </div>
             <div className="project-desc">
@@ -142,12 +148,16 @@ const ProductItem = (props) => {
                 <div className="project-time">
                     {props.time}
                 </div>
-                <div className="more">
+                <div className="more" onClick={getName}>
                     阅读更多
                 </div>
             </div>
         </ProductItemWrapper>
     );
+
+
 };
+
+
 
 export default ProductItem;

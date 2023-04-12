@@ -15,6 +15,9 @@ const ProHead = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: start;
+  
+  
+  
   padding:  100px 351px;
   position: relative;
   
