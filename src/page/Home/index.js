@@ -4,6 +4,8 @@ import styled from "styled-components";
 import {Container} from "../../styles/media";
 import Herobg from "../../assets/site/Herobg.png";
 import Terminal from "../../components/Terminal";
+import {getRes, getResume} from "../../api/resume";
+import {json} from "react-router-dom";
 
 const BtnWrapper = styled.div`
     display: flex;
@@ -45,6 +47,20 @@ const HomePage1 = styled.div`
 `;
 
 function Home() {
+   async  function handleClick() {
+        var pass = prompt("请输入网站密码");
+        if (pass == "ysl123") {
+            let resume = await getResume();
+            const url = window.URL.createObjectURL(resume); // 创建 URL 对象
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = '简历.pdf'; // 设置下载文件名
+            link.click();
+        } else {
+            alert("密码错误");
+        }
+    }
+
     return (
         <HomePage1>
             <Introduce>
@@ -60,7 +76,7 @@ function Home() {
             </Introduce>
             <Container>
                 <BtnWrapper>
-                    <Button>下载简历</Button>
+                    <Button onClick={handleClick}>下载简历</Button>
                     <Button more>了解更多</Button>
                 </BtnWrapper>
                 <Terminal />

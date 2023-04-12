@@ -4,7 +4,7 @@ import BlogImages from "../../assets/site/Blog images.png";
 import DateIcon from "../../assets/icon/path.svg";
 import CateIcon from "../../assets/icon/path (1).svg";
 import TagIcon from "../../assets/icon/path (2).svg";
-
+import {useImperativeHandle} from "react";
 const BlogWrapper = styled.div`
   height: 230px;
   box-sizing: border-box;
@@ -90,10 +90,20 @@ const BlogWrapper = styled.div`
   }
 `;
 
-const BlogItem = (props) => {
+const BlogItem = React.forwardRef((props,ref) => {
+    function handleClick() {
+        console.log('子组件');
+        props.onClickImg();
+    }
+
+    // 将 handleClick 方法暴露出去
+    useImperativeHandle(ref, () => ({
+        handleClick
+    }));
+
     return (
         <BlogWrapper>
-            <div className="blog-cover">
+            <div className="blog-cover" onClick={handleClick}>
                 <img src={BlogImages} alt=""/>
             </div>
             <div className="blog-detail">
@@ -122,6 +132,6 @@ const BlogItem = (props) => {
             </div>
         </BlogWrapper>
     );
-};
+});
 
 export default BlogItem;

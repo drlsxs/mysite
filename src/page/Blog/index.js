@@ -3,18 +3,21 @@ import styled from "styled-components";
 import Introduce from "../../components/Introduce";
 import {Container} from "../../styles/media";
 import BlogItem from "../../components/BlogItem";
+import {useState} from "react";
+import blogItem from "../../components/BlogItem";
+
 const BlogWrapper = styled.div`
 `;
 
 const Blog = () => {
-    const blogList = [
+    let [blogList,setBlogList] = useState([
         {
             name: '地理信息大数据平台',
             desc: '地理信息大数据平台地理信息大数据平台地理信息大数据平台地理信息大数据平台地理信息大数据平台地理信息大数据平台',
             time: '2021-12-12',
             cover: 'https://knomed.oss-cn-hangzhou.aliyuncs.com/images/20230406235022.png',
             category: 'cesium',
-            tags: ['cesium','gis'],
+            tags: ['cesium', 'gis'],
         },
         {
             name: '地理信息大数据平台',
@@ -22,7 +25,7 @@ const Blog = () => {
             time: '2022-5-4',
             cover: 'https://knomed.oss-cn-hangzhou.aliyuncs.com/images/20230406235022.png',
             category: 'cesium',
-            tags: ['cesium','gis','vue'],
+            tags: ['cesium', 'gis', 'vue'],
         },
         {
             name: '地理信息大数据平台',
@@ -30,9 +33,17 @@ const Blog = () => {
             time: '2022-3-1',
             cover: 'https://knomed.oss-cn-hangzhou.aliyuncs.com/images/20230406235022.png',
             category: 'cesium',
-            tags: ['cesium','gis'],
+            tags: ['cesium', 'gis'],
         },
-    ];
+    ]);
+
+    function handClick(blog) {
+        console.log('父组件')
+        // childRef.current.handleClick();  父子组件相同事件互相调用无穷循环了
+    }
+
+    const childRef = React.createRef();
+
     return (
         <BlogWrapper>
             <Introduce>
@@ -50,7 +61,7 @@ const Blog = () => {
                 <div className="wrap">
                     {
                         blogList.map(blog => {
-                            return <BlogItem title={blog.name} content={blog.desc} time={blog.time} category={blog.category} tags={blog.tags} />
+                            return <BlogItem ref={childRef} onClickImg={()=>handClick(blog)} key={blog.time}   title={blog.name} content={blog.desc} time={blog.time} category={blog.category} tags={blog.tags} />
                         })
                     }
                 </div>
