@@ -3,7 +3,7 @@ const { createProxyMiddleware } = require('http-proxy-middleware');
 module.exports = function (app) {
     app.use(createProxyMiddleware('/api', {
         target : 'http://localhost:8080',
-        changeOrigin : true,
+        changeOrigin : true, // 添加代理，只在开发环境时生效
         ws: true,
         pathRewrite : {
             '^/api' : ''
