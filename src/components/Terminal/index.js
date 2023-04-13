@@ -79,7 +79,7 @@ const TerminalWrapper = styled.div`
   }
 
   .split {
-    width: 728px;
+    width: 100%;
     height: 2px;
     background: rgb(40, 45, 69);;
   }
@@ -145,7 +145,7 @@ const TerminalWrapper = styled.div`
     fill: #0f38ef
   }
 
-  .width-full{
+  .width-full {
     color: white;
   }
 `;

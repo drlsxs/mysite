@@ -61,7 +61,9 @@ function Nav(props) {
                     <Link to={nav.path}>{nav.name}</Link>
                 </div>
             ))}
-            <img src={githubIcon} alt=""/>
+            <Link to="https://github.com/drlsxs">
+                <img src={githubIcon} alt=""/>
+            </Link>
         </NavWrapper>
     );
 }
