@@ -4,8 +4,7 @@ import styled from "styled-components";
 import {Container} from "../../styles/media";
 import Herobg from "../../assets/site/Herobg.png";
 import Terminal from "../../components/Terminal";
-import {getRes, getResume} from "../../api/resume";
-import {json} from "react-router-dom";
+import { getResume} from "../../api/resume";
 
 const BtnWrapper = styled.div`
     display: flex;
@@ -49,7 +48,7 @@ const HomePage1 = styled.div`
 function Home() {
    async  function handleClick() {
         var pass = prompt("请输入网站密码");
-        if (pass == "ysl123") {
+        if (pass === "ysl123") {
             let resume = await getResume();
             const url = window.URL.createObjectURL(resume); // 创建 URL 对象
             const link = document.createElement('a');
