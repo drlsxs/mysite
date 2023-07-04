@@ -1,6 +1,16 @@
+/*
+ * @Author: yangshilin
+ * @Date: 2023-07-04 12:36:42
+ * @LastEditors: yangshilin
+ * @LastEditTime: 2023-07-04 12:47:21
+ * @FilePath: src\components\Header\index.js
+ * @Description: 请添加文件描述
+ */
 import React from 'react';
 import styled from "styled-components";
 import Nav from "../Nav";
+import logo from "../../assets/icon/logo.svg";
+
 const HeadWrapper = styled.div`
   width: 100%;
   height: 83px;
@@ -30,7 +40,7 @@ function Header(props) {
     return (
         <HeadWrapper>
             <LogoWrapper>
-                网站名称
+              <img src={logo} alt=""/>
             </LogoWrapper>
             <Nav />
         </HeadWrapper>

@@ -1,3 +1,11 @@
+/*
+ * @Author: yangshilin
+ * @Date: 2023-07-04 11:58:07
+ * @LastEditors: yangshilin
+ * @LastEditTime: 2023-07-04 12:14:50
+ * @FilePath: src\components\Terminal\index.js
+ * @Description: 请添加文件描述
+ */
 import React from 'react';
 import styled from "styled-components";
 import avatar from "../../assets/site/Ellipse 6.png";
@@ -9,7 +17,7 @@ import GitHubCalendar from "github-calendar";
 import {useEffect} from "react";
 
 const TerminalWrapper = styled.div`
-  width: 808px;
+  width: 90%;
   height: 513px;
   box-sizing: border-box;
   /* Neutral/gray 800 */
@@ -181,7 +189,6 @@ const Terminal = () => {
                     </div>
                 </div>
                 <div className="split">
-
                 </div>
                 <div className="infos">
                     <div className="info-item">

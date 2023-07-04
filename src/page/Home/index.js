@@ -1,3 +1,11 @@
+/*
+ * @Author: yangshilin
+ * @Date: 2023-07-04 12:35:18
+ * @LastEditors: yangshilin
+ * @LastEditTime: 2023-07-04 12:36:42
+ * @FilePath: src\page\Home\index.js
+ * @Description: 请添加文件描述
+ */
 import React from 'react';
 import Introduce from "../../components/Introduce";
 import styled from "styled-components";
@@ -59,6 +67,7 @@ function Home() {
             alert("密码错误");
         }
     }
+
 
     return (
         <HomePage1>

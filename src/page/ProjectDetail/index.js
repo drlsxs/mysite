@@ -1,12 +1,18 @@
+/*
+ * @Author: yangshilin
+ * @Date: 2023-05-18 10:52:58
+ * @LastEditors: yangshilin
+ * @LastEditTime: 2023-05-18 10:53:53
+ * @FilePath: src\page\ProjectDetail\index.js
+ * @Description: 请添加文件描述
+ */
 import React from 'react';
 import styled from "styled-components";
 import {Container} from "../../styles/media";
 import BgShape from "../../assets/site/BGshape.png";
 
-
 const ProHead = styled.div`
   box-sizing: border-box;
-
   /* Neutral/gray 800 */
   background: rgb(14, 19, 48);
   /* Neutral/gray 500 */

@@ -4,38 +4,31 @@ import Introduce from "../../components/Introduce";
 import {Container} from "../../styles/media";
 import BlogItem from "../../components/BlogItem";
 import {useState} from "react";
-import blogItem from "../../components/BlogItem";
-
+import {useEffect} from "react";
+import {getBlog} from "../../api/blog";
+import {DateUtils} from "../../utils";
 const BlogWrapper = styled.div`
 `;
 
 const Blog = () => {
-    let [blogList,setBlogList] = useState([
-        {
-            name: '地理信息大数据平台',
-            desc: '地理信息大数据平台地理信息大数据平台地理信息大数据平台地理信息大数据平台地理信息大数据平台地理信息大数据平台',
-            time: '2021-12-12',
-            cover: 'https://knomed.oss-cn-hangzhou.aliyuncs.com/images/20230406235022.png',
-            category: 'cesium',
-            tags: ['cesium', 'gis'],
-        },
-        {
-            name: '地理信息大数据平台',
-            desc: '地理信息大数据平台地理信息大数据平台地理信息大数据平台地理信息大数据平台地理信息大数据平台地理信息大数据平台',
-            time: '2022-5-4',
-            cover: 'https://knomed.oss-cn-hangzhou.aliyuncs.com/images/20230406235022.png',
-            category: 'cesium',
-            tags: ['cesium', 'gis', 'vue'],
-        },
-        {
-            name: '地理信息大数据平台',
-            desc: '地理信息大数据平台地理信息大数据平台地理信息大数据平台地理信息大数据平台地理信息大数据平台地理信息大数据平台',
-            time: '2022-3-1',
-            cover: 'https://knomed.oss-cn-hangzhou.aliyuncs.com/images/20230406235022.png',
-            category: 'cesium',
-            tags: ['cesium', 'gis'],
-        },
-    ]);
+    let [blogList,setBlogList] = useState([]);
+
+
+    useEffect(() => {
+        async function getBlogs() {
+            let params = {
+                pageNum: 1,
+                pageSize: 10,
+            };
+            let response = await getBlog(params);
+            if (response.ok) {
+                setBlogList(response.data);
+            }
+        }
+
+        getBlogs().then();
+
+    }, []);
 
     function handClick(blog) {
         console.log('父组件')
@@ -43,7 +36,6 @@ const Blog = () => {
     }
 
     const childRef = React.createRef();
-
     return (
         <BlogWrapper>
             <Introduce>
@@ -61,11 +53,13 @@ const Blog = () => {
                 <div className="wrap">
                     {
                         blogList.map(blog => {
-                            return <BlogItem ref={childRef} onClickImg={()=>handClick(blog)} key={blog.time}   title={blog.name} content={blog.desc} time={blog.time} category={blog.category} tags={blog.tags} />
+                            return <BlogItem ref={childRef} onClickImg={()=>handClick(blog)} key={blog.id}  title={blog.filename} content={blog.content} time={DateUtils().Date2Str(blog.mtime)} category={blog.ctime} tags={blog.tags} />
                         })
                     }
                 </div>
             </Container>
+
+
         </BlogWrapper>
     );
 };

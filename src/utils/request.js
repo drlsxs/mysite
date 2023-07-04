@@ -1,22 +1,24 @@
 const BASE_URL = '/api';
-function request(url, params, method = 'GET',blob) {
+function request({url, params,data, method = 'GET',headers}) {
     const options = {
         method: method,
         headers: {
             'Content-Type': 'application/json',
+            ...headers
         },
     };
     let fetchUrl = `${BASE_URL}${url}`;
-    if (method === 'GET' && params) {
+    if (params) {
         fetchUrl += '?' + new URLSearchParams(params).toString();
-    } else {
-        options.body = JSON.stringify(params);
+    }
+    if (data) {
+        options.body = JSON.stringify(data);
     }
     return fetch(fetchUrl, options).then((response) => {
         if (!response.ok) {
             throw Error(response.statusText);
         }
-        if (blob) {
+        if (options.headers["Content-Type"] == "application/octet-stream") {
             return response.blob();
         }
         return response.json();

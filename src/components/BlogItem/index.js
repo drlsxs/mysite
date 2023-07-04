@@ -48,7 +48,9 @@ const BlogWrapper = styled.div`
       margin-bottom: 15px;
       cursor: pointer;
     }
-
+    .blogcontwrap {
+      height: 120px;
+    }
     .blog-content {
       color: rgb(143, 155, 183);
       font-family: Inter;
@@ -58,7 +60,8 @@ const BlogWrapper = styled.div`
       font-weight: 400;
       line-height: 22px;
       text-align: left;
-      height: 122px;
+      height: 109px;
+      overflow: hidden;
       cursor: pointer;
     }
 
@@ -110,8 +113,10 @@ const BlogItem = React.forwardRef((props,ref) => {
                 <div className="blog-title">
                     {props.title}
                 </div>
-                <div className="blog-content">
-                    {props.content}
+                <div className="blogcontwrap">
+                    <div className="blog-content">
+                        {props.content}
+                    </div>
                 </div>
                 <div className="blog-info">
                     <div className="bloginfoitem date">
@@ -124,9 +129,9 @@ const BlogItem = React.forwardRef((props,ref) => {
                     </div>
                     <div className="bloginfoitem tag">
                         <img src={TagIcon} alt=""/>
-                        {
-                            props.tags.map(tag=> <span>{tag}</span> )
-                        }
+                        {/*{*/}
+                        {/*    props.tags.map(tag=> <span>{tag}</span> )*/}
+                        {/*}*/}
                     </div>
                 </div>
             </div>
