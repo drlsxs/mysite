@@ -2,7 +2,7 @@
  * @Author: yangshilin
  * @Date: 2023-05-18 10:52:58
  * @LastEditors: yangshilin
- * @LastEditTime: 2023-05-18 10:53:53
+ * @LastEditTime: 2023-07-06 12:31:26
  * @FilePath: src\page\ProjectDetail\index.js
  * @Description: 请添加文件描述
  */
@@ -12,6 +12,11 @@ import {Container} from "../../styles/media";
 import BgShape from "../../assets/site/BGshape.png";
 
 const ProHead = styled.div`
+
+  @media (max-width: 990px) {
+    padding: 10px;
+  }
+
   box-sizing: border-box;
   /* Neutral/gray 800 */
   background: rgb(14, 19, 48);
@@ -21,16 +26,13 @@ const ProHead = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: start;
-  
-  
-  
-  padding:  100px 351px;
+
+
+  padding: 100px 351px;
   position: relative;
-  
-  
-  
-  
-  .bg{
+
+
+  .bg {
     background: url(${BgShape}) no-repeat center/163% 110%;
     width: 100%;
     height: 600px;
@@ -39,6 +41,7 @@ const ProHead = styled.div`
     top: 0;
     left: 0;
   }
+
   .title {
     color: rgb(255, 255, 255);
     font-family: Noto Sans SC;
@@ -49,7 +52,8 @@ const ProHead = styled.div`
     margin-bottom: 20px;
     z-index: 100;
   }
-  .orientation{
+
+  .orientation {
     color: rgb(255, 255, 255);
     font-family: zcoolqingkehuangyouti;
     font-size: 23px;
@@ -63,20 +67,17 @@ const ProHead = styled.div`
 `;
 
 const ProDetailWrapper = styled.div`
-    color: white;
+  color: white;
   margin-top: 40px;
   z-index: 102;
   position: relative;
-  .info-title{
-    background: linear-gradient(180.00deg, rgba(255,255,255,1.00),rgba(255,255,255,0.00));
-    -webkit-background-clip:
-            text;
-    -webkit-text-fill-color:
-            transparent;
-    background-clip:
-            text;
-    text-fill-color:
-            transparent;
+
+  .info-title {
+    background: linear-gradient(180.00deg, rgba(255, 255, 255, 1.00), rgba(255, 255, 255, 0.00));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
     font-family: Noto Sans SC;
     font-size: 33px;
     font-weight: 700;
@@ -85,7 +86,8 @@ const ProDetailWrapper = styled.div`
     text-align: left;
     margin: 15px 0;
   }
-  .info-detail{
+
+  .info-detail {
     color: rgb(255, 255, 255);
     font-family: Noto Sans SC;
     font-size: 20px;
@@ -95,52 +97,53 @@ const ProDetailWrapper = styled.div`
   }
 `;
 
-const ProDetail = () => {
-    return (
-        <div>
-            <ProHead>
-                <div className="title">
-                    地理信息大数据平台
-                </div>
-                <div className="orientation">
-                    为地理信息可视化提供基础服务
-                </div>
-                <div className="bg">
 
-                </div>
-            </ProHead>
-            <Container>
-                <ProDetailWrapper>
-                    <div className="info">
-                        <div className="info-item">
-                            <div className="info-title">
-                                项目介绍
-                            </div>
-                            <div className="project-desc info-detail">
-                                地理信息大数据平台地理信息大数据平台地理信息大数据平台地理信息大数据平台地理信息大数据平台地理信息大数据平台地理信息大数据平台地理信息大数据平台地理信息大数据平台地理信息大数据平台地理信息大数据平台地理信息大数据平台
-                            </div>
-                        </div>
-                        <div className="info-item">
-                            <div className="info-title">
-                                技术栈
-                            </div>
-                            <div className="project-desc info-detail">
-                                vue,cesium,geoserver,postgis,java
-                            </div>
-                        </div>
-                        <div className="info-item">
-                            <div className="info-title">
-                                在线地址
-                            </div>
-                            <div className="project-desc info-detail">
-                                https://gitee.com/dotnetchina/SmartSQL
-                            </div>
-                        </div>
-                    </div>
-                </ProDetailWrapper>
-            </Container>
+const ProDetail = () => {
+  return (
+    <div>
+      <ProHead className="project-detail">
+        <div className="title">
+          地理信息大数据平台
         </div>
-    );
+        <div className="orientation">
+          为地理信息可视化提供基础服务
+        </div>
+        <div className="bg">
+
+        </div>
+      </ProHead>
+      <Container>
+        <ProDetailWrapper>
+          <div className="info">
+            <div className="info-item">
+              <div className="info-title">
+                项目介绍
+              </div>
+              <div className="project-desc info-detail">
+                地理信息大数据平台地理信息大数据平台地理信息大数据平台地理信息大数据平台地理信息大数据平台地理信息大数据平台地理信息大数据平台地理信息大数据平台地理信息大数据平台地理信息大数据平台地理信息大数据平台地理信息大数据平台
+              </div>
+            </div>
+            <div className="info-item">
+              <div className="info-title">
+                技术栈
+              </div>
+              <div className="project-desc info-detail">
+                vue,cesium,geoserver,postgis,java
+              </div>
+            </div>
+            <div className="info-item">
+              <div className="info-title">
+                在线地址
+              </div>
+              <div className="project-desc info-detail">
+                https://gitee.com/dotnetchina/SmartSQL
+              </div>
+            </div>
+          </div>
+        </ProDetailWrapper>
+      </Container>
+    </div>
+  );
 };
 
 export default ProDetail;

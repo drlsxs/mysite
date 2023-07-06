@@ -1,3 +1,11 @@
+/*
+ * @Author: yangshilin
+ * @Date: 2023-07-04 13:15:02
+ * @LastEditors: yangshilin
+ * @LastEditTime: 2023-07-04 13:16:42
+ * @FilePath: src\components\BlogItem\index.js
+ * @Description: 请添加文件描述
+ */
 import React from 'react';
 import styled from "styled-components";
 import BlogImages from "../../assets/site/Blog images.png";
@@ -5,6 +13,7 @@ import DateIcon from "../../assets/icon/path.svg";
 import CateIcon from "../../assets/icon/path (1).svg";
 import TagIcon from "../../assets/icon/path (2).svg";
 import {useImperativeHandle} from "react";
+
 const BlogWrapper = styled.div`
   height: 230px;
   box-sizing: border-box;
@@ -48,9 +57,11 @@ const BlogWrapper = styled.div`
       margin-bottom: 15px;
       cursor: pointer;
     }
+
     .blogcontwrap {
       height: 120px;
     }
+
     .blog-content {
       color: rgb(143, 155, 183);
       font-family: Inter;
@@ -73,18 +84,21 @@ const BlogWrapper = styled.div`
         margin-right: 40px;
         display: flex;
         align-items: center;
-        color:#8f9bb7;
+        color: #8f9bb7;
+
         img {
           margin-right: 12px;
           width: 18px;
         }
+
         span {
           font-family: Noto Sans SC;
           font-size: 16px;
           font-weight: 400;
         }
-        &.tag{
-          span{
+
+        &.tag {
+          span {
             margin-right: 10px;
           }
         }
@@ -93,50 +107,49 @@ const BlogWrapper = styled.div`
   }
 `;
 
-const BlogItem = React.forwardRef((props,ref) => {
-    function handleClick() {
-        console.log('子组件');
-        props.onClickImg();
-    }
+const BlogItem = React.forwardRef((props, ref) => {
+  function handleClick() {
+    console.log('子组件');
+    props.onClickImg();
+  }
 
-    // 将 handleClick 方法暴露出去
-    useImperativeHandle(ref, () => ({
-        handleClick
-    }));
-
-    return (
-        <BlogWrapper>
-            <div className="blog-cover" onClick={handleClick}>
-                <img src={BlogImages} alt=""/>
-            </div>
-            <div className="blog-detail">
-                <div className="blog-title">
-                    {props.title}
-                </div>
-                <div className="blogcontwrap">
-                    <div className="blog-content">
-                        {props.content}
-                    </div>
-                </div>
-                <div className="blog-info">
-                    <div className="bloginfoitem date">
-                        <img src={DateIcon} alt=""/>
-                        <span>{props.time}</span>
-                    </div>
-                    <div className="bloginfoitem cate">
-                        <img src={CateIcon} alt=""/>
-                        <span>{props.category}</span>
-                    </div>
-                    <div className="bloginfoitem tag">
-                        <img src={TagIcon} alt=""/>
-                        {/*{*/}
-                        {/*    props.tags.map(tag=> <span>{tag}</span> )*/}
-                        {/*}*/}
-                    </div>
-                </div>
-            </div>
-        </BlogWrapper>
-    );
+  // 将 handleClick 方法暴露出去
+  useImperativeHandle(ref, () => ({
+    handleClick
+  }));
+  return (
+    <BlogWrapper>
+      <div className="blog-cover" onClick={handleClick}>
+        <img src={BlogImages} alt=""/>
+      </div>
+      <div className="blog-detail">
+        <div className="blog-title">
+          {props.title}
+        </div>
+        <div className="blogcontwrap">
+          <div className="blog-content">
+            {props.content}
+          </div>
+        </div>
+        <div className="blog-info">
+          <div className="bloginfoitem date">
+            <img src={DateIcon} alt=""/>
+            <span>{props.time}</span>
+          </div>
+          <div className="bloginfoitem cate">
+            <img src={CateIcon} alt=""/>
+            <span>{props.category}</span>
+          </div>
+          <div className="bloginfoitem tag">
+            <img src={TagIcon} alt=""/>
+            {/*{*/}
+            {/*    props.tags.map(tag=> <span>{tag}</span> )*/}
+            {/*}*/}
+          </div>
+        </div>
+      </div>
+    </BlogWrapper>
+  );
 });
 
 export default BlogItem;

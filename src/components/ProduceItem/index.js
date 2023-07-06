@@ -1,20 +1,27 @@
+/*
+ * @Author: yangshilin
+ * @Date: 2023-07-04 13:17:30
+ * @LastEditors: yangshilin
+ * @LastEditTime: 2023-07-06 12:25:06
+ * @FilePath: src\components\ProduceItem\index.js
+ * @Description: 请添加文件描述
+ */
 import React from 'react';
 import styled from "styled-components";
 import Cover from "../../assets/site/Blog image.png";
-import { useNavigate } from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
+
 const ProductItemWrapper = styled.div`
-  
+
   /* Card */
   position: static;
-  width: 33%;
   box-sizing: border-box;
   /* Neutral/gray 800 */
   background: rgb(14, 19, 48);
   /* Neutral/gray 500 */
   border: 1px solid rgb(40, 45, 69);
 
-  border-radius:
-          10px;
+  border-radius: 10px;
 
   /* 自动布局 */
   display: flex;
@@ -30,14 +37,21 @@ const ProductItemWrapper = styled.div`
   align-self: stretch;
   flex-grow: 0;
   margin: 0px 24px;
-  .cover{
-    img{
-      height: 230px;
+
+  .cover {
+    width: 100%;
+
+    img {
+      width: 100%;
       margin-bottom: 19px;
       cursor: pointer;
+      max-width: 340px;
+      height: 230px;
+      object-fit: fill;
     }
   }
-  .project-name{
+
+  .project-name {
     /* H6 */
     position: static;
     width: 342px;
@@ -48,7 +62,7 @@ const ProductItemWrapper = styled.div`
     font-weight: 700;
     line-height: 32px;
     text-align: left;
-    
+
     cursor: pointer;
     /* 自动布局 */
     display: flex;
@@ -65,7 +79,8 @@ const ProductItemWrapper = styled.div`
     flex-grow: 0;
     margin-bottom: 15px;
   }
-  .project-desc{
+
+  .project-desc {
     /* Paragraph/SM */
     position: static;
     width: 342px;
@@ -81,6 +96,8 @@ const ProductItemWrapper = styled.div`
     letter-spacing: 0%;
     text-align: left;
 
+    overflow: hidden;
+    text-indent: 2em;
 
 
     /* 自动布局 */
@@ -91,7 +108,8 @@ const ProductItemWrapper = styled.div`
     padding: 0px;
     margin-bottom: 30px;
     position: relative;
-    &::after{
+
+    &::after {
       position: absolute;
       bottom: -15px;
       content: '';
@@ -100,12 +118,14 @@ const ProductItemWrapper = styled.div`
       background: #242942;
     }
   }
-  .project-info{
+
+  .project-info {
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    .project-time{
+
+    .project-time {
       /* Paragraph/SM */
       color: rgb(143, 155, 183);
       font-family: Inter;
@@ -114,7 +134,8 @@ const ProductItemWrapper = styled.div`
       line-height: 22px;
       text-align: left;
     }
-    .more{
+
+    .more {
       /* Button/RG */
       color: rgb(255, 255, 255);
       font-family: Satoshi;
@@ -125,39 +146,39 @@ const ProductItemWrapper = styled.div`
       cursor: pointer;
     }
   }
-  
 `
 
 const ProductItem = (props) => {
-    const navgate = useNavigate();
-    function getName() {
-        navgate('/project/project_detail');
-    }
-    return (
-        <ProductItemWrapper>
-            <div className="cover">
-                <img src={Cover} alt="" onClick={getName}/>
-            </div>
-            <div className="project-name" onClick={getName}>
-                {props.name}
-            </div>
-            <div className="project-desc">
-                {props.desc}
-            </div>
-            <div className="project-info">
-                <div className="project-time">
-                    {props.time}
-                </div>
-                <div className="more" onClick={getName}>
-                    阅读更多
-                </div>
-            </div>
-        </ProductItemWrapper>
-    );
+  const navgate = useNavigate();
+
+  function getName() {
+    navgate('/project/project_detail');
+  }
+
+  return (
+    <ProductItemWrapper>
+      <div className="cover">
+        <img src={props.cover || Cover} alt="" onClick={getName}/>
+      </div>
+      <div className="project-name" onClick={getName}>
+        {props.name}
+      </div>
+      <div className="project-desc">
+        {props.desc}
+      </div>
+      <div className="project-info">
+        <div className="project-time">
+          {props.time}
+        </div>
+        <div className="more" onClick={getName}>
+          阅读更多
+        </div>
+      </div>
+    </ProductItemWrapper>
+  );
 
 
 };
-
 
 
 export default ProductItem;

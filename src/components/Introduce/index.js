@@ -1,6 +1,15 @@
+/*
+ * @Author: yangshilin
+ * @Date: 2023-07-04 13:17:16
+ * @LastEditors: yangshilin
+ * @LastEditTime: 2023-07-04 14:32:42
+ * @FilePath: src\components\Introduce\index.js
+ * @Description: 请添加文件描述
+ */
 import React from 'react';
 import styled from "styled-components";
 import {Container} from "../../styles/media";
+
 const IntroduceWrapper = styled.div`
   color: rgb(143, 155, 183);
   font-family: PangMenZhengDao;
@@ -30,22 +39,23 @@ const Detail = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  padding: 0px;
   margin-bottom: 30px;
+  padding: 0 10px;
 `;
 
+
 function Introduce(props) {
-    const {header,content} = props.children;
-    return (
-        <Container>
-            <IntroduceWrapper>
-                {header}
-            </IntroduceWrapper>
-            <Detail>
-                {content}
-            </Detail>
-        </Container>
-    );
+  const {header, content} = props.children;
+  return (
+    <Container>
+      <IntroduceWrapper className="intro">
+        {header}
+      </IntroduceWrapper>
+      <Detail>
+        {content}
+      </Detail>
+    </Container>
+  );
 };
 
 export default Introduce;
